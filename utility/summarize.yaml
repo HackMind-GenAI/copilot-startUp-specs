@@ -1,1 +1,40 @@
+openapi: 3.0.0
+info:
+  title: Dummy API
+  version: 1.0.0
+
+paths:
+  /hello:
+    post:
+      summary: Returns a greeting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HelloRequest'
+      responses:
+        "200":
+          description: Successful greeting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloResponse'
+
+components:
+  schemas:
+    HelloRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+        - name
+    HelloResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
 
