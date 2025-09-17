@@ -20,6 +20,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HelloResponse'
+  /getDevilsAdvocate:
+    post:
+      summary: Returns a qna pair object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DevilsAdvocateRequest'
+      responses:
+        "200":
+          description: Successful qna pair
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DevilsAdvocateResponse'
+  /getComparisonData:
+    post:
+      summary: Returns a comparison object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComparisonDataRequest'
+      responses:
+        "200":
+          description: Successful comparison object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComparisonDataResponse'
 
 components:
   schemas:
@@ -31,6 +63,34 @@ components:
       required:
         - name
     HelloResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    DevilsAdvocateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+        - name
+    DevilsAdvocateResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    ComparisonDataRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+        - name
+    ComparisonDataResponse:
       type: object
       properties:
         message:
