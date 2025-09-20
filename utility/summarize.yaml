@@ -52,6 +52,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ComparisonDataResponse'
+  /chat:
+    post:
+      summary: Returns a chat response
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        "200":
+          description: Successful chat response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse' 
+                
 
 components:
   schemas:
@@ -97,4 +114,18 @@ components:
           type: string
       required:
         - message
+    ChatRequest:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    ChatResponse:
+      type: object
+      properties:
+        reply:
+          type: string
+      required:
+        - reply
 
